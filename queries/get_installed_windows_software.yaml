@@ -1,0 +1,36 @@
+author_email: administrator@internal.subterfuge.biz
+author_id: 1
+author_name: administrator
+automations_enabled: false
+created_at: '2025-05-25T18:08:30Z'
+description: Get all software installed on a Windows computer, including programs,
+  browser plugins, and installed packages. Note that this does not include other running
+  processes in the processes table.
+discard_data: false
+id: 9
+interval: 0
+labels_include_any: null
+logging: snapshot
+min_osquery_version: ''
+name: Get installed Windows software
+observer_can_run: false
+packs: []
+platform: windows
+query: SELECT name AS name, version AS version, 'Program (Windows)' AS type, 'programs'
+  AS source FROM programs UNION SELECT name AS name, version AS version, 'Package
+  (Python)' AS type, 'python_packages' AS source FROM python_packages UNION SELECT
+  name AS name, version AS version, 'Browser plugin (IE)' AS type, 'ie_extensions'
+  AS source FROM ie_extensions UNION SELECT name AS name, version AS version, 'Browser
+  plugin (Chrome)' AS type, 'chrome_extensions' AS source FROM chrome_extensions UNION
+  SELECT name AS name, version AS version, 'Browser plugin (Firefox)' AS type, 'firefox_addons'
+  AS source FROM firefox_addons UNION SELECT name AS name, version AS version, 'Package
+  (Chocolatey)' AS type, 'chocolatey_packages' AS source FROM chocolatey_packages;
+saved: true
+stats:
+  system_time_p50: null
+  system_time_p95: null
+  total_executions: 0
+  user_time_p50: null
+  user_time_p95: null
+team_id: null
+updated_at: '2025-05-25T18:08:30Z'

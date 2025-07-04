@@ -1,0 +1,27 @@
+author_email: administrator@internal.subterfuge.biz
+author_id: 1
+author_name: administrator
+automations_enabled: false
+created_at: '2025-05-25T18:08:30Z'
+description: Network interfaces MAC address
+discard_data: false
+id: 17
+interval: 0
+labels_include_any: null
+logging: snapshot
+min_osquery_version: ''
+name: Get network interfaces
+observer_can_run: false
+packs: []
+platform: darwin, linux, windows
+query: SELECT a.interface, a.address, d.mac FROM interface_addresses a JOIN interface_details
+  d USING (interface) WHERE address not in ('127.0.0.1', '::1');
+saved: true
+stats:
+  system_time_p50: null
+  system_time_p95: null
+  total_executions: 0
+  user_time_p50: null
+  user_time_p95: null
+team_id: null
+updated_at: '2025-05-25T18:08:30Z'

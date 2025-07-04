@@ -1,0 +1,30 @@
+author_email: administrator@internal.subterfuge.biz
+author_id: 1
+author_name: administrator
+automations_enabled: false
+created_at: '2025-05-25T18:08:30Z'
+description: Geolocate a host using the [ipapi.co](https://ipapi.co) in an emergency.
+  Requires the curl table. [Learn more](https://fleetdm.com/guides/locate-assets-with-osquery).
+discard_data: false
+id: 47
+interval: 0
+labels_include_any: null
+logging: snapshot
+min_osquery_version: ''
+name: Geolocate via ipapi.co
+observer_can_run: false
+packs: []
+platform: darwin, linux, windows
+query: SELECT JSON_EXTRACT(result, '$.ip') AS ip, JSON_EXTRACT(result, '$.city') AS
+  city, JSON_EXTRACT(result, '$.region') AS region, JSON_EXTRACT(result, '$.country')
+  AS country, JSON_EXTRACT(result, '$.latitude') AS latitude, JSON_EXTRACT(result,
+  '$.longitude') AS longitude FROM curl WHERE url = 'http://ipapi.co/json';
+saved: true
+stats:
+  system_time_p50: 16
+  system_time_p95: 47
+  total_executions: 3
+  user_time_p50: 0
+  user_time_p95: 15
+team_id: null
+updated_at: '2025-05-25T18:08:30Z'

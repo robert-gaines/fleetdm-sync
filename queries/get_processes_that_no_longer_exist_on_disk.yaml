@@ -1,0 +1,28 @@
+author_email: administrator@internal.subterfuge.biz
+author_id: 1
+author_name: administrator
+automations_enabled: false
+created_at: '2025-05-25T18:08:30Z'
+description: Lists all processes of which the binary which launched them no longer
+  exists on disk. Attackers often delete files from disk after launching a process
+  to mask presence.
+discard_data: false
+id: 24
+interval: 0
+labels_include_any: null
+logging: snapshot
+min_osquery_version: ''
+name: Get processes that no longer exist on disk
+observer_can_run: false
+packs: []
+platform: linux, darwin, windows
+query: SELECT name, path, pid FROM processes WHERE on_disk = 0;
+saved: true
+stats:
+  system_time_p50: null
+  system_time_p95: null
+  total_executions: 0
+  user_time_p50: null
+  user_time_p95: null
+team_id: null
+updated_at: '2025-05-25T18:08:30Z'

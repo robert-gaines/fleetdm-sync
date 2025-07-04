@@ -1,0 +1,28 @@
+author_email: administrator@internal.subterfuge.biz
+author_id: 1
+author_name: administrator
+automations_enabled: false
+created_at: '2025-05-25T18:08:30Z'
+description: Returns servers with root login in the last 24 hours and the time the
+  users were logged in.
+discard_data: false
+id: 34
+interval: 0
+labels_include_any: null
+logging: snapshot
+min_osquery_version: ''
+name: Get servers with root login in the last 24 hours
+observer_can_run: false
+packs: []
+platform: darwin, linux, windows
+query: SELECT * FROM last WHERE username = "root" AND time > (( SELECT unix_time FROM
+  time ) - 86400 );
+saved: true
+stats:
+  system_time_p50: null
+  system_time_p95: null
+  total_executions: 0
+  user_time_p50: null
+  user_time_p95: null
+team_id: null
+updated_at: '2025-05-25T18:08:30Z'

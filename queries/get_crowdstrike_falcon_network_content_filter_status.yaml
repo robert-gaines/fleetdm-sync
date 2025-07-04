@@ -1,0 +1,31 @@
+author_email: administrator@internal.subterfuge.biz
+author_id: 1
+author_name: administrator
+automations_enabled: false
+created_at: '2025-05-25T18:08:30Z'
+description: Get the status of the Crowdstrike Falcon network content filter (as in
+  "System Settings" > "Network > "Filters").
+discard_data: false
+id: 48
+interval: 0
+labels_include_any: null
+logging: snapshot
+min_osquery_version: ''
+name: Get Crowdstrike Falcon network content filter status
+observer_can_run: false
+packs: []
+platform: darwin
+query: /* Load up the plist */ WITH extensions_plist AS (SELECT *, rowid FROM plist
+  WHERE path = '/Library/Preferences/com.apple.networkextension.plist') /* Find the
+  first "Enabled" key after the key indicating the crowdstrike app */ SELECT value
+  AS enabled FROM extensions_plist WHERE subkey = 'Enabled' AND rowid > (SELECT rowid
+  FROM extensions_plist WHERE value = 'com.crowdstrike.falcon.App') LIMIT 1;
+saved: true
+stats:
+  system_time_p50: null
+  system_time_p95: null
+  total_executions: 0
+  user_time_p50: null
+  user_time_p95: null
+team_id: null
+updated_at: '2025-05-25T18:08:30Z'

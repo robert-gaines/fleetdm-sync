@@ -1,0 +1,5 @@
+configuration:
+  fqdn: "fleetdm.internal.subterfuge.biz"
+  port: 8080
+
+  
