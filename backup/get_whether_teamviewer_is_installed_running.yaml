@@ -16,8 +16,8 @@ name: Get whether TeamViewer is installed/running
 observer_can_run: false
 packs: []
 platform: windows
-query: SELECT display_name,status,cmdline,s.pid,p.path FROM services AS s JOIN processes AS
-  p USING(pid) WHERE s.name LIKE "%teamviewer%";
+query: SELECT display_name,status,cmdline,s.pid,p.path FROM services AS s JOIN processes
+  AS p USING(pid) WHERE s.name LIKE "%teamviewer%";
 saved: true
 stats:
   system_time_p50: null
@@ -26,4 +26,4 @@ stats:
   user_time_p50: null
   user_time_p95: null
 team_id: null
-updated_at: '2025-05-25T18:08:30Z'
+updated_at: '2025-07-05T22:42:44Z'
